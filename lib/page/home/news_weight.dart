@@ -20,8 +20,11 @@ class _NewsWeightState extends State<NewsWeight> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Center(
-      child: Text(content),
+    return Container(
+      color: Colors.white,
+      child: Center(
+        child: Text(content),
+      ),
     );
   }
 }
