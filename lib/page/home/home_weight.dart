@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/constant/constant.dart';
 import 'package:flutter_app/page/demo/NestedScrollViewWidget.dart';
 import 'package:flutter_app/util/ScreenUtil.dart';
+import 'package:flutter_swiper/flutter_swiper.dart';
 
 import 'news_weight.dart';
 
@@ -15,6 +16,11 @@ class HomeWeight extends StatefulWidget {
 
 class _HomeWeightState extends State<HomeWeight> {
   var _tabs = ['关注', '全部', '快讯'];
+
+  List<String> _banners = [
+    'https://pulsar-resource.oss-cn-shanghai.aliyuncs.com/operate/931d833df48b4bfaafa01621d46bc4d2',
+    'https://pulsar-resource.oss-cn-shanghai.aliyuncs.com/operate/25e65b5352b841d3a93741e9daf3626a'
+  ];
 
   double _opacity = 0;
 
@@ -59,11 +65,32 @@ class _HomeWeightState extends State<HomeWeight> {
                           background: Container(
                             child: Stack(
                               children: <Widget>[
-                                Image.network(
-                                  'https://pulsar-resource.oss-cn-shanghai.aliyuncs.com/operate/25e65b5352b841d3a93741e9daf3626a',
-                                  width: ScreenUtil.screenW(context),
+                                Container(
                                   height: 210,
-                                  fit: BoxFit.fill,
+                                  child: Swiper(
+                                    itemCount: _banners.length,
+                                    itemWidth: ScreenUtil.screenW(context),
+                                    itemBuilder: (context, index) {
+                                      return Image.network(
+                                        _banners[index],
+                                        width: ScreenUtil.screenW(context),
+                                        height: 210,
+                                        fit: BoxFit.fill,
+                                      );
+                                    },
+                                    autoplay: true,
+                                    duration: 150,
+                                    controller: SwiperController(),
+                                    scrollDirection: Axis.horizontal,
+                                    pagination: SwiperPagination(
+                                        builder: DotSwiperPaginationBuilder(
+                                            color: Color(0x80FFFFFF),
+                                            activeColor: Colors.white,
+                                            size: 10,
+                                            activeSize: 10,
+                                            space: 5),
+                                        margin: EdgeInsets.only(bottom: 30)),
+                                  ),
                                 ),
                                 Column(
                                   children: <Widget>[
@@ -226,7 +253,8 @@ class _HomeWeightState extends State<HomeWeight> {
                 padding: EdgeInsets.only(left: 10),
               ),
               Image.asset(
-                Constant.getAssetImg(_opacity > 0.5 ? 'icon_scan_black' : 'icon_scan'),
+                Constant.getAssetImg(
+                    _opacity > 0.5 ? 'icon_scan_black' : 'icon_scan'),
                 width: 20,
                 height: 20,
               )
