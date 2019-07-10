@@ -204,7 +204,10 @@ class _HomeWeightState extends State<HomeWeight> {
               },
               body: TabBarView(
                   children: _tabs.map((item) {
-                return NewsWeight(content: item);
+                return NewsWeight(
+                  content: item,
+                  controller: _scrollController,
+                );
               }).toList())),
         ),
         Opacity(
