@@ -5,8 +5,7 @@ import 'package:flutter_easyrefresh/easy_refresh.dart';
 
 class NewsWeight extends StatefulWidget {
   final String content;
-
-  ScrollController controller;
+  final ScrollController controller;
 
   NewsWeight({Key key, this.content, this.controller}) : super(key: key);
 
@@ -50,7 +49,12 @@ class _NewsWeightState extends State<NewsWeight>
         'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/71be4480770f48fdb5e998bd282702c6',
         0,
         true,
-        false),
+        true,
+        urlDatas: [
+          'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b',
+          'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b',
+          'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b'
+        ]),
     DynamicData(
         'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b',
         '饶雪漫2',
@@ -60,7 +64,13 @@ class _NewsWeightState extends State<NewsWeight>
         'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/71be4480770f48fdb5e998bd282702c6',
         0,
         true,
-        false),
+        false,
+        urlDatas: [
+          'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b',
+          'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b',
+          'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b',
+          'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b'
+        ]),
     DynamicData(
         'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b',
         '饶雪漫3',
@@ -70,7 +80,11 @@ class _NewsWeightState extends State<NewsWeight>
         'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/71be4480770f48fdb5e998bd282702c6',
         0,
         true,
-        false),
+        false,
+        urlDatas: [
+          'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b',
+          'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b',
+        ]),
     DynamicData(
         'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b',
         '饶雪漫4',
@@ -80,7 +94,15 @@ class _NewsWeightState extends State<NewsWeight>
         'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/71be4480770f48fdb5e998bd282702c6',
         0,
         true,
-        false),
+        true,
+        urlDatas: [
+          'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b',
+          'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b',
+          'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b',
+          'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b',
+          'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b',
+          'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b'
+        ]),
   ];
 
   List<DynamicData> _newData = [
@@ -93,7 +115,12 @@ class _NewsWeightState extends State<NewsWeight>
         'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/71be4480770f48fdb5e998bd282702c6',
         0,
         true,
-        false),
+        false,
+        urlDatas: [
+          'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b',
+          'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b',
+          'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b'
+        ]),
     DynamicData(
         'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b',
         '饶雪漫n2',
@@ -103,7 +130,15 @@ class _NewsWeightState extends State<NewsWeight>
         'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/71be4480770f48fdb5e998bd282702c6',
         0,
         true,
-        false),
+        false,
+        urlDatas: [
+          'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b',
+          'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b',
+          'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b',
+          'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b',
+          'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b',
+          'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b'
+        ]),
     DynamicData(
         'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b',
         '饶雪漫n3',
@@ -113,7 +148,11 @@ class _NewsWeightState extends State<NewsWeight>
         'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/71be4480770f48fdb5e998bd282702c6',
         0,
         true,
-        false),
+        false,
+        urlDatas: [
+          'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b',
+          'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b',
+        ]),
     DynamicData(
         'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b',
         '饶雪漫n4',
@@ -123,7 +162,11 @@ class _NewsWeightState extends State<NewsWeight>
         'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/71be4480770f48fdb5e998bd282702c6',
         0,
         true,
-        false),
+        false,
+        urlDatas: [
+          'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b',
+          'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b',
+        ]),
   ];
 
   @override

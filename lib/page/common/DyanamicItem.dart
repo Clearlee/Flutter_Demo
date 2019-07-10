@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/bean/DynamicData.dart';
 import 'package:flutter_app/constant/constant.dart';
-import 'package:flutter_app/util/ScreenUtil.dart';
+
+import 'overflow_weight.dart';
 
 //动态列表item
 class DynamicItem extends StatefulWidget {
@@ -90,15 +91,13 @@ class DynamicItemState extends State<DynamicItem> {
             margin: EdgeInsets.only(top: 10),
             child: Stack(
               children: <Widget>[
-                Image.network(
-                  _data.img,
+                Container(
                   height: 190,
-                  width: ScreenUtil.screenW(context) - 32,
-                  fit: BoxFit.cover,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      image: DecorationImage(
+                          image: NetworkImage(_data.img), fit: BoxFit.cover)),
                 ),
-//                Align(
-//
-//                )
               ],
             ),
           ),
@@ -111,6 +110,69 @@ class DynamicItemState extends State<DynamicItem> {
                 style: TextStyle(
                     color: Color(0xFF222222), fontSize: 16, height: 1.5),
               )),
+          Row(
+            //外层必须嵌套一层 否则Container的宽度会撑满屏幕 https://zhuanlan.zhihu.com/p/41801871
+            children: <Widget>[
+              Container(
+                margin: EdgeInsets.only(top: 10),
+                padding: EdgeInsets.symmetric(vertical: 2, horizontal: 10),
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.horizontal(
+                      left: Radius.circular(180), right: Radius.circular(180)),
+                  color: Color(0xFFF0F0F0),
+                ),
+                child: Row(
+                  children: <Widget>[
+                    Image.asset(
+                      Constant.getAssetImg('icon_local'),
+                      width: 12,
+                      height: 14,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 5),
+                      child: Text(
+                        _data.location,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
+                        style:
+                            TextStyle(color: Color(0xFF666666), fontSize: 12),
+                      ),
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 10),
+            height: 24,
+            child: Row(
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.only(right: 10),
+                  child: OverFlowWeight(
+                    datas: _data.urlDatas,
+                  ),
+                ),
+                Expanded(
+                  child: Text(
+                    '${_data.likeNum}赞过',
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
+                    style: TextStyle(color: Color(0xFF222222), fontSize: 14),
+                  ),
+                ),
+                Image.asset(
+                  _data.ifLike
+                      ? Constant.getAssetImg('icon_liked')
+                      : Constant.getAssetImg('icon_like'),
+                  width: 22,
+                  height: 22,
+                )
+              ],
+            ),
+          )
         ],
       ),
     );
