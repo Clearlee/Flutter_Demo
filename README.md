@@ -2,15 +2,14 @@
 
 A new Flutter application.
 
-## Getting Started
+Flutter练手项目
+一款练手的flutter项目，使用flutter重写公司APP
 
-This project is a starting point for a Flutter application.
+持续更新
+欢迎star
 
-A few resources to get you started if this is your first Flutter project:
+1.0版本
+app首页，发布页，消息页，我的页面
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+![image](https://github.com/Clearlee/Flutter_Demo/screenshot/screenshot_1_1.gif )
+![image](https://github.com/Clearlee/Flutter_Demo/screenshot/screenshot_1_2.gif )
