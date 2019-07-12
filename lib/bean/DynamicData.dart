@@ -11,7 +11,9 @@ class DynamicData {
 
   List<String> urlDatas;
 
+  List<String> imgsDatas;
+
   DynamicData(this.userHead, this.userName, this.time, this.content,
-      this.location, this.img, this.likeNum, this.ifFollow, this.ifLike,
-      {this.urlDatas});
+      this.location, this.likeNum, this.ifFollow, this.ifLike,
+      {this.urlDatas,this.imgsDatas});
 }

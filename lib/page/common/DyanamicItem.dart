@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/bean/DynamicData.dart';
 import 'package:flutter_app/constant/constant.dart';
+import 'package:flutter_app/page/common/speed_dial_weight.dart';
 
 import 'overflow_weight.dart';
 
@@ -87,9 +88,9 @@ class DynamicItemState extends State<DynamicItem> {
             ],
           ),
           Container(
-            height: 190,
             margin: EdgeInsets.only(top: 10),
-            child: Stack(
+            child: SpeedDialWeight(_data
+                .imgsDatas), /*Stack(
               children: <Widget>[
                 Container(
                   height: 190,
@@ -99,7 +100,7 @@ class DynamicItemState extends State<DynamicItem> {
                           image: NetworkImage(_data.img), fit: BoxFit.cover)),
                 ),
               ],
-            ),
+            ),*/
           ),
           Container(
               margin: EdgeInsets.only(top: 9),
