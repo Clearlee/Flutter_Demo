@@ -11,5 +11,5 @@ Flutter练手项目
 1.0版本
 app首页，发布页，消息页，我的页面
 
-![image](https://github.com/Clearlee/Flutter_Demo/screenshot/screenshot_1_1.gif )
-![image](https://github.com/Clearlee/Flutter_Demo/screenshot/screenshot_1_2.gif )
+![image](https://github.com/Clearlee/Flutter_Demo/blob/master/screenshot/screenshot_1_1.gif )
+![image](https://github.com/Clearlee/Flutter_Demo/blob/master/screenshot/screenshot_1_2.gif )
