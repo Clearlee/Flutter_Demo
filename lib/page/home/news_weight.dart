@@ -21,7 +21,7 @@ class NewsWeight extends StatefulWidget {
 }
 
 class _NewsWeightState extends State<NewsWeight>
-    with SingleTickerProviderStateMixin{
+    with SingleTickerProviderStateMixin {
   GlobalKey<RefreshHeaderState> _headerKeyList =
       new GlobalKey<RefreshHeaderState>();
   GlobalKey<RefreshFooterState> _connectorFooterKeyList =
@@ -353,24 +353,29 @@ class _NewsWeightState extends State<NewsWeight>
                 SliverList(
                   delegate: SliverChildListDelegate(<Widget>[headerList]),
                 ),
+//                SliverList(
+//                    delegate: SliverChildBuilderDelegate(
+//                        ((BuildContext context, int index) {
+//                  return GestureDetector(
+//                    child: DynamicItem(
+//                      data: _topData[index],
+//                    ),
+//                    onTap: () {
+//                      onItemClick(_topData[index]);
+//                    },
+//                  );
+//                }), childCount: _topData.length)),
+//                SliverToBoxAdapter(
+//                  child: GuideRecommendWeight(_guideData),
+//                ),
                 SliverList(
                     delegate: SliverChildBuilderDelegate(
                         ((BuildContext context, int index) {
-                  return GestureDetector(
-                    child: DynamicItem(
-                      data: _topData[index],
-                    ),
-                    onTap: () {
-                      onItemClick(_topData[index]);
-                    },
-                  );
-                }), childCount: _topData.length)),
-                SliverToBoxAdapter(
-                  child: GuideRecommendWeight(_guideData),
-                ),
-                SliverList(
-                    delegate: SliverChildBuilderDelegate(
-                        ((BuildContext context, int index) {
+
+                  if (index == 3) {
+                    return GuideRecommendWeight(_guideData);
+                  }//需要insert一组空数据
+
                   return GestureDetector(
                     child: DynamicItem(
                       data: _data[index],

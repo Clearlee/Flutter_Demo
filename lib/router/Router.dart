@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/page/container_weight.dart';
 import 'package:flutter_app/page/dynamic/dynamic_details_weight.dart';
+import 'package:flutter_app/page/home/guide/guide_list_weight.dart';
 
 class Router {
   static const homePage = 'app://';
   static const dynamicDetailsPage = 'app://dynamicDetailsPage';
+  static const guideListPage = 'app://guideListPage';
 
   Router.pushNoParams(BuildContext context, String url) {
     Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -26,6 +28,8 @@ class Router {
         return DynamicDetailPage(
           dynamicData: params,
         );
+      case guideListPage:
+        return GuideListPage();
     }
     return null;
   }
