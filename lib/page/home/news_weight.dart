@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/bean/DynamicData.dart';
+import 'package:flutter_app/bean/GuideData.dart';
 import 'package:flutter_app/page/common/DyanamicItem.dart';
 import 'package:flutter_app/router/Router.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
+
+import 'guide_recommend_weight.dart';
 
 class NewsWeight extends StatefulWidget {
   final String content;
@@ -18,7 +21,7 @@ class NewsWeight extends StatefulWidget {
 }
 
 class _NewsWeightState extends State<NewsWeight>
-    with SingleTickerProviderStateMixin {
+    with SingleTickerProviderStateMixin{
   GlobalKey<RefreshHeaderState> _headerKeyList =
       new GlobalKey<RefreshHeaderState>();
   GlobalKey<RefreshFooterState> _connectorFooterKeyList =
@@ -39,6 +42,69 @@ class _NewsWeightState extends State<NewsWeight>
   final String content;
 
   _NewsWeightState(this.content, this._controller);
+
+  List<GuideData> _guideData = [
+    GuideData(
+        'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b',
+        '饶雪漫1',
+        false),
+    GuideData(
+        'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b',
+        '饶雪漫2',
+        true),
+    GuideData(
+        'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b',
+        '饶雪漫3',
+        false),
+    GuideData(
+        'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b',
+        '饶雪漫4',
+        false),
+    GuideData(
+        'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b',
+        '饶雪漫5',
+        true),
+  ];
+
+  List<DynamicData> _topData = [
+    DynamicData(
+        'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b',
+        '饶雪漫1',
+        '2 周前',
+        '甘肃美女数不胜数，不看不相信，看了你迷醉。甘肃第一美女果然在甘南 “中国小西藏、甘肃后花园”是她的美誉，草原上牛羊是她衣服上最…',
+        '环球中心',
+        0,
+        true,
+        true,
+        imgsDatas: [
+          'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/71be4480770f48fdb5e998bd282702c6',
+          'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/71be4480770f48fdb5e998bd282702c6'
+        ],
+        urlDatas: [
+          'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b',
+          'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b',
+          'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b'
+        ]),
+    DynamicData(
+        'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b',
+        '饶雪漫3',
+        '2 周前',
+        '六天的时间，我们去了历史悠久的塔尔寺，看了一场浪漫的日出日落，纯净的茶卡盐湖像天堂一样美丽！',
+        '环球中心',
+        0,
+        true,
+        false,
+        imgsDatas: [
+          'https://pulsar-resource.oss-cn-shanghai.aliyuncs.com/operate/52e758a0cbb34d92a773f3d23b7c6dcb',
+          'https://lianxiangfiles.oss-cn-beijing.aliyuncs.com/article/xx4ona4pmc1562911104935.jpg?x-oss-process=style/news',
+          'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/71be4480770f48fdb5e998bd282702c6',
+          'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/71be4480770f48fdb5e998bd282702c6'
+        ],
+        urlDatas: [
+          'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b',
+          'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b',
+        ]),
+  ];
 
   List<DynamicData> _data = [
     DynamicData(
@@ -286,6 +352,21 @@ class _NewsWeightState extends State<NewsWeight>
                 ),
                 SliverList(
                   delegate: SliverChildListDelegate(<Widget>[headerList]),
+                ),
+                SliverList(
+                    delegate: SliverChildBuilderDelegate(
+                        ((BuildContext context, int index) {
+                  return GestureDetector(
+                    child: DynamicItem(
+                      data: _topData[index],
+                    ),
+                    onTap: () {
+                      onItemClick(_topData[index]);
+                    },
+                  );
+                }), childCount: _topData.length)),
+                SliverToBoxAdapter(
+                  child: GuideRecommendWeight(_guideData),
                 ),
                 SliverList(
                     delegate: SliverChildBuilderDelegate(
