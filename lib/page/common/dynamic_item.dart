@@ -3,6 +3,7 @@ import 'package:flutter_app/bean/DynamicData.dart';
 import 'package:flutter_app/constant/constant.dart';
 import 'package:flutter_app/page/common/speed_dial_weight.dart';
 
+import 'circle_image.dart';
 import 'overflow_weight.dart';
 
 //动态列表item
@@ -38,10 +39,12 @@ class DynamicItemState extends State<DynamicItem> {
             children: <Widget>[
               Container(
                   margin: EdgeInsets.only(right: 10),
-                  width: 40,
-                  height: 40,
-                  child: CircleAvatar(
-                      backgroundImage: NetworkImage(_data.userHead))),
+                  child: CircleImage(
+                    url: _data.userHead,
+                    width: 40,
+                    height: 40,
+                  )
+                  ),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

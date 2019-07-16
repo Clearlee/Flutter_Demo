@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/bean/DynamicData.dart';
 import 'package:flutter_app/bean/GuideData.dart';
-import 'package:flutter_app/page/common/DyanamicItem.dart';
+import 'package:flutter_app/constant/refresh.dart';
+import 'package:flutter_app/page/common/dynamic_item.dart';
 import 'package:flutter_app/router/Router.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
 
@@ -307,29 +308,8 @@ class _NewsWeightState extends State<NewsWeight>
 
   @override
   Widget build(BuildContext context) {
-    Widget headerList = ClassicsHeader(
-      key: _headerKeyList,
-      refreshText:
-          "pullToRefresh" /*Translations.of(context).text("pullToRefresh")*/,
-      refreshReadyText: "releaseToRefresh",
-      refreshingText: "refreshing",
-      refreshedText: "refreshed",
-      moreInfo: "updateAt",
-      bgColor: Colors.transparent,
-      textColor: Colors.black,
-    );
-    Widget footerList = ClassicsFooter(
-      key: _footerKeyList,
-      loadHeight: 50.0,
-      loadText: "pushToLoad",
-      loadReadyText: "releaseToLoad",
-      loadingText: "loading",
-      loadedText: "loaded",
-      noMoreText: "noMore",
-      moreInfo: "updateAt",
-      bgColor: Colors.transparent,
-      textColor: Colors.black,
-    );
+    Widget headerList = Refresh.headerList(_headerKeyList);
+    Widget footerList = Refresh.footerList(_footerKeyList);
 
     return SafeArea(
         top: false,
@@ -353,28 +333,12 @@ class _NewsWeightState extends State<NewsWeight>
                 SliverList(
                   delegate: SliverChildListDelegate(<Widget>[headerList]),
                 ),
-//                SliverList(
-//                    delegate: SliverChildBuilderDelegate(
-//                        ((BuildContext context, int index) {
-//                  return GestureDetector(
-//                    child: DynamicItem(
-//                      data: _topData[index],
-//                    ),
-//                    onTap: () {
-//                      onItemClick(_topData[index]);
-//                    },
-//                  );
-//                }), childCount: _topData.length)),
-//                SliverToBoxAdapter(
-//                  child: GuideRecommendWeight(_guideData),
-//                ),
                 SliverList(
                     delegate: SliverChildBuilderDelegate(
                         ((BuildContext context, int index) {
-
                   if (index == 3) {
                     return GuideRecommendWeight(_guideData);
-                  }//需要insert一组空数据
+                  } //需要insert一组空数据占位
 
                   return GestureDetector(
                     child: DynamicItem(

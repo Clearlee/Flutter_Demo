@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-class OverFlowWeight extends StatefulWidget {
+import 'circle_image.dart';
 
+class OverFlowWeight extends StatefulWidget {
   OverFlowWeight({Key key, this.datas}) : super(key: key);
 
   List<String> datas;
@@ -13,7 +14,6 @@ class OverFlowWeight extends StatefulWidget {
 }
 
 class OverFlowWeightState extends State<OverFlowWeight> {
-
   List<String> datas;
 
   List<Positioned> postionDatas = [];
@@ -30,13 +30,11 @@ class OverFlowWeightState extends State<OverFlowWeight> {
       postionDatas.add(Positioned(
         right: right,
         child: Container(
-          width: 24,
-          height: 24,
-          decoration: BoxDecoration(
-              border: Border.all(color: Colors.white, width: 1),
-              borderRadius: BorderRadius.all(Radius.circular(180)),
-              image: DecorationImage(
-                  image: NetworkImage(datas[i]), fit: BoxFit.cover)),
+          child: CircleImage(
+            url: datas[i],
+            width: 24,
+            height: 24,
+          )
         ),
       ));
       right = right + 14;

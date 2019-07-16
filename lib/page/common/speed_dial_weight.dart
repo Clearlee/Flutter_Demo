@@ -1,10 +1,15 @@
+import 'dart:io';
+
+import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/page/common/pic_swiper.dart';
 import 'package:flutter_app/util/ScreenUtil.dart';
 
-class SpeedDialWeight extends StatelessWidget {
+import 'circle_image.dart';
 
+class SpeedDialWeight extends StatelessWidget {
   List<String> urls;
-  List<ImgWeight> _imgs;
+  List<ImgWeight> _imgs = [];
   double width, height;
 
   SpeedDialWeight(this.urls);
@@ -22,9 +27,15 @@ class SpeedDialWeight extends StatelessWidget {
       height = width;
     }
 
-    _imgs ??= urls.map((url) {
-      return ImgWeight(url: url, width: width, height: height);
-    }).toList();
+    for (var i = 0; i < urls.length; i++) {
+      _imgs.add(ImgWeight(
+        index: i,
+        url: urls[i],
+        width: width,
+        height: height,
+        urls: urls,
+      ));
+    }
 
     // TODO: implement build
     return Wrap(
@@ -40,8 +51,15 @@ class ImgWeight extends StatelessWidget {
   final int index;
   final double width;
   final double height;
+  List<String> urls;
 
-  ImgWeight({@required this.url, this.index, this.width, this.height, Key key})
+  ImgWeight(
+      {@required this.url,
+      this.index,
+      this.width,
+      this.height,
+      this.urls,
+      Key key})
       : super(key: key);
 
   @override
@@ -49,22 +67,33 @@ class ImgWeight extends StatelessWidget {
     // TODO: implement build
     return GestureDetector(
       child: Container(
-        width: width,
-        height: height,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(6)),
-            image:
-                DecorationImage(image: NetworkImage(url), fit: BoxFit.cover)),
+        child: CircleImage(
+          url: url,
+          width: width,
+          height: height,
+          shape: BoxShape.rectangle,
+          placeHolder: 'iamge_placeholder',
+        ),
       ),
-      onTap: () => _tap(index),
+      onTap: () => _tap(context, index),
     );
   }
 
-  _tap(int index) {
-    if (index == 100) {
-      _openGallery();
-    }
+  _tap(BuildContext context, int index) {
+    print(index);
+    var page = PicSwiper(
+        index,
+        urls.map((url) {
+          return PicSwiperItem(url);
+        }).toList());
+    Navigator.push(
+        context,
+        Platform.isAndroid
+            ? TransparentMaterialPageRoute(builder: (_) {
+                return page;
+              })
+            : TransparentCupertinoPageRoute(builder: (_) {
+                return page;
+              }));
   }
-
-  _openGallery() async {}
 }
