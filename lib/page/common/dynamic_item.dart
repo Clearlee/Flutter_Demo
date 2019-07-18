@@ -93,17 +93,7 @@ class DynamicItemState extends State<DynamicItem> {
           Container(
             margin: EdgeInsets.only(top: 10),
             child: SpeedDialWeight(_data
-                .imgsDatas), /*Stack(
-              children: <Widget>[
-                Container(
-                  height: 190,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                      image: DecorationImage(
-                          image: NetworkImage(_data.img), fit: BoxFit.cover)),
-                ),
-              ],
-            ),*/
+                .imgsDatas),
           ),
           Container(
               margin: EdgeInsets.only(top: 9),

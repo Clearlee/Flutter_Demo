@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/page/container_weight.dart';
 import 'package:flutter_app/page/dynamic/dynamic_details_weight.dart';
 import 'package:flutter_app/page/home/guide/guide_list_weight.dart';
+import 'package:flutter_app/page/product/product_hall_page.dart';
 
 class Router {
   static const homePage = 'app://';
   static const dynamicDetailsPage = 'app://dynamicDetailsPage';
   static const guideListPage = 'app://guideListPage';
+  static const productHallPage = 'app://productHallPage';
 
   Router.pushNoParams(BuildContext context, String url) {
     Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -30,6 +32,8 @@ class Router {
         );
       case guideListPage:
         return GuideListPage();
+      case productHallPage:
+        return ProductHallPage();
     }
     return null;
   }

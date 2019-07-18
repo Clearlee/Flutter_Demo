@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/constant/constant.dart';
-import 'package:flutter_app/page/demo/NestedScrollViewWidget.dart';
 import 'package:flutter_app/router/Router.dart';
 import 'package:flutter_app/util/ScreenUtil.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
@@ -115,8 +114,7 @@ class _HomeWeightState extends State<HomeWeight> {
                                           Expanded(
                                               child: GestureDetector(
                                             onTap: () => Router.pushNoParams(
-                                                context,
-                                                Router.guideListPage),
+                                                context, Router.guideListPage),
                                             child: Row(
                                               mainAxisAlignment:
                                                   MainAxisAlignment.center,
@@ -149,11 +147,8 @@ class _HomeWeightState extends State<HomeWeight> {
                                           Expanded(
                                               child: GestureDetector(
                                             onTap: () {
-                                              Navigator.push(context,
-                                                  new MaterialPageRoute(
-                                                      builder: (context) {
-                                                return new NestedScrollViewWidget();
-                                              }));
+                                              Router.pushNoParams(context,
+                                                  Router.productHallPage);
                                             },
                                             child: Row(
                                               mainAxisAlignment:

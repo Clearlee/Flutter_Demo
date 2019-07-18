@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/bean/recommend_guide_data_entity.dart';
-import 'package:flutter_app/constant/HttpUrl.dart';
+import 'package:flutter_app/constant/http_url.dart';
 import 'package:flutter_app/constant/constant.dart';
 import 'package:flutter_app/constant/refresh.dart';
 import 'package:flutter_app/page/common/circle_image.dart';
