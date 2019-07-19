@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/bloc/bloc_provider.dart';
+import 'package:flutter_app/bloc/product/product_bloc.dart';
 import 'package:flutter_app/constant/constant.dart';
 import 'package:flutter_app/page/product/product_list_weight.dart';
+import 'package:flutter_app/page/product/product_list_weight2.dart';
 import 'package:flutter_app/page/product/select_pop_weight.dart';
 import 'package:flutter_app/util/ScreenUtil.dart';
 
@@ -221,7 +224,11 @@ class ProductHallPageState extends State<ProductHallPage>
                     child: TabBarView(
                         controller: _tabController,
                         children: _tabs.map((item) {
-                          return ProductListWeight();
+//                          return ProductListWeight();
+                            return BlocProvider<ProductBloc>(
+                              bloc: ProductBloc(),
+                              child: ProductListWeight2(),
+                            );
                         }).toList()),
                   )
                 ],
