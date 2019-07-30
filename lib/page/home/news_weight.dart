@@ -317,8 +317,8 @@ class _NewsWeightState extends State<NewsWeight>
         child: Builder(builder: (context) {
           return EasyRefresh(
             outerController: _controller,
-            refreshHeader: ConnectorHeader(
-                key: _connectorHeaderKeyList, header: headerList),
+//            refreshHeader: ConnectorHeader(
+//                key: _connectorHeaderKeyList, header: headerList),
             refreshFooter: ConnectorFooter(
                 key: _connectorFooterKeyList, footer: footerList),
             child: CustomScrollView(
@@ -330,9 +330,9 @@ class _NewsWeightState extends State<NewsWeight>
                   handle:
                       NestedScrollView.sliverOverlapAbsorberHandleFor(context),
                 ),
-                SliverList(
-                  delegate: SliverChildListDelegate(<Widget>[headerList]),
-                ),
+//                SliverList(
+//                  delegate: SliverChildListDelegate(<Widget>[headerList]),
+//                ),
                 SliverList(
                     delegate: SliverChildBuilderDelegate(
                         ((BuildContext context, int index) {
@@ -354,14 +354,14 @@ class _NewsWeightState extends State<NewsWeight>
                 )
               ],
             ),
-            onRefresh: () async {
-              await new Future.delayed(const Duration(seconds: 1), () {
-                setState(() {
-                  _data.clear();
-                  _data.addAll(_newData);
-                });
-              });
-            },
+//            onRefresh: () async {
+//              await new Future.delayed(const Duration(seconds: 1), () {
+//                setState(() {
+//                  _data.clear();
+//                  _data.addAll(_newData);
+//                });
+//              });
+//            },
             loadMore: () async {
               await new Future.delayed(const Duration(seconds: 1), () {
                 if (_data.length < 20) {

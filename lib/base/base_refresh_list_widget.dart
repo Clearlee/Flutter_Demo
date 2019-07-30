@@ -18,8 +18,6 @@ abstract class BaseRefreshListWidget<T, B extends BaseListBloc<T>>
 
   @override
   Widget buildWidget(BuildContext context) {
-
-    print('buildWidget');
     // TODO: implement buildWidget
     return StreamBuilder(
         initialData: bloc.list,
@@ -31,6 +29,7 @@ abstract class BaseRefreshListWidget<T, B extends BaseListBloc<T>>
               refreshHeader: Refresh.headerList(_headerKeyList),
               onRefresh: () => bloc.refresh(),
               child: ListView.builder(
+                  padding: EdgeInsets.all(0),
                   itemCount: snapshot.data == null ? 0 : snapshot.data.length,
                   scrollDirection: Axis.vertical,
                   itemBuilder: (context, index) {

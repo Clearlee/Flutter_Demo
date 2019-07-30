@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_app/bean/product_data.dart';
 
@@ -36,6 +38,8 @@ class ProductBloc extends BaseListBloc<ProductData> {
                 'https://ruyi-resource.oss-cn-hangzhou.aliyuncs.com/ruyi/prod/7d4d307da5524840810834c714a7295b'));
       }
     }
+
+    sink.add(UnmodifiableListView<ProductData>(list));
   }
 
   @override
@@ -46,7 +50,7 @@ class ProductBloc extends BaseListBloc<ProductData> {
 
     if (list == null) {
       list = new List();
-    }else{
+    } else {
       list.clear();
     }
 

@@ -5,6 +5,7 @@ import 'package:flutter_app/constant/http_url.dart';
 import 'package:flutter_app/constant/constant.dart';
 import 'package:flutter_app/constant/refresh.dart';
 import 'package:flutter_app/page/common/circle_image.dart';
+import 'package:flutter_app/router/Router.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
 
 import '../../../entity_factory.dart';
@@ -71,10 +72,15 @@ class GuideListState extends State<GuideListPage> {
               behavior: ScrollOverBehavior(),
               refreshFooter: Refresh.footerList(_footerKeyList),
               child: ListView.builder(
+                  padding: EdgeInsets.all(0),
                   itemCount: _datas.length,
                   scrollDirection: Axis.vertical,
                   itemBuilder: (context, index) {
-                    return GuideItemWeight(_datas[index]);
+                    return GestureDetector(
+                      onTap: () =>
+                          Router.pushNoParams(context, Router.guideDetailPage),
+                      child: GuideItemWeight(_datas[index]),
+                    );
                   }),
               loadMore: () async {
                 await new Future.delayed(const Duration(seconds: 1), () {
