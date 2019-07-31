@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/bean/product_data.dart';
 import 'package:flutter_app/constant/constant.dart';
 import 'package:flutter_app/page/common/circle_image.dart';
+import 'package:flutter_app/router/Router.dart';
 import 'package:flutter_app/util/ScreenUtil.dart';
 
 class ProductListWeight extends StatefulWidget {
@@ -38,7 +39,11 @@ class ProductListWeightState extends State<ProductListWeight> {
         padding: EdgeInsets.all(0),
         scrollDirection: Axis.vertical,
         itemCount: _productDatas.length,
-        itemBuilder: (context, index) => ProductListItem(_productDatas[index]));
+        itemBuilder: (context, index) => GestureDetector(
+              onTap: () =>
+                  Router.pushNoParams(context, Router.productDetailPage),
+              child: ProductListItem(_productDatas[index]),
+            ));
   }
 }
 

@@ -224,11 +224,11 @@ class ProductHallPageState extends State<ProductHallPage>
                     child: TabBarView(
                         controller: _tabController,
                         children: _tabs.map((item) {
-//                          return ProductListWeight();
-                            return BlocProvider<ProductBloc>(
+                          return ProductListWeight();
+                           /* return BlocProvider<ProductBloc>(
                               bloc: ProductBloc(),
                               child: ProductListWeight2(),
-                            );
+                            );*/
                         }).toList()),
                   )
                 ],
